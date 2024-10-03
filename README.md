@@ -6,14 +6,12 @@
 
 - [Introduction](#introduction)
 - [Features](#features)
+- [Color Legend](#color-legend)
 - [Algorithms](#algorithms)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
 - [Usage](#usage)
-  - [Running the Visualizer](#running-the-visualizer)
-  - [Generating Mazes](#generating-mazes)
-  - [Choosing Algorithms](#choosing-algorithms)
+    - [Running the Visualizer](#running-the-visualizer)
+    - [Generating Mazes](#generating-mazes)
+    - [Choosing Algorithms](#choosing-algorithms)
 - [Screenshots](#screenshots)
 - [Demo](#demo)
 
@@ -29,65 +27,55 @@ Pathfinding-Visualizer is an educational and interactive tool that visualizes po
 - Maze generation options to create random or structured mazes.
 - Clean, interactive GUI with dynamic grid editing.
 
+## Color Legend
+
+To enhance understanding of the algorithm’s path, different colors are used to represent different states of the nodes:
+
+| **Color** | **Meaning**               |
+|-----------|---------------------------|
+| **Red**   | Start Node                |
+| **Yellow**| End Node                  |
+| **White** | Unexplored/Empty Node     |
+| **Black** | Wall/Blocked Node         |
+| **Green** | Nodes to be Explored      |
+| **Blue**  | Visited Nodes             |
+| **Pink**  | Optimal Path              |
+
 ## Algorithms
 
-### Implemented Algorithms:
-1. **Breadth-First Search (BFS)**: Expands evenly in all directions.
-2. **Depth-First Search (DFS)**: Explores paths deeply before backtracking.
-3. **Dijkstra's Algorithm**: Expands based on the shortest path using a priority queue.
-4. **A* Search**: Uses heuristics to find the most optimal path quickly.
+### Implemented Algorithms
+1. **Breadth-First Search (BFS)**:
+    - Explores all possible nodes evenly in all directions until it finds the end.
+    - Ideal for unweighted grids.
 
-## Getting Started
+2. **Depth-First Search (DFS)**:
+    - Explores deeply in one direction before backtracking.
+    - Not guaranteed to find the shortest path.
 
-### Prerequisites
+3. **Dijkstra's Algorithm**:
+    - Expands nodes based on the shortest path using a priority queue.
+    - Finds the shortest path in weighted grids.
 
-- **Java JDK 8 or above** installed.
-- **Maven** or other build tools (optional).
-
-### Installation
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/YourUsername/Pathfinding-Visualizer.git
-    ```
-
-2. Navigate to the project directory:
-    ```bash
-    cd Pathfinding-Visualizer
-    ```
-
-3. Compile the project:
-    ```bash
-    javac -d bin src/**/*.java
-    ```
-
-4. Run the visualizer:
-    ```bash
-    java -cp bin com.project.PathfindingVisualizer
-    ```
+4. **A* Search**:
+    - Uses heuristics (Euclidean or Manhattan distance) to prioritize nodes, improving efficiency.
+    - Generally faster than Dijkstra’s for most cases.
 
 ## Usage
 
 ### Running the Visualizer
 
-1. Start the application using the command:
-    ```bash
-    java -cp bin com.project.PathfindingVisualizer
-    ```
-
-2. Interact with the GUI:
-   - **Set the start and end points** by right-clicking the grid.
-   - **Create walls** by left-clicking and dragging on the grid.
-   - **Generate a maze** using the `Generate Maze` button.
-   - **Run an algorithm** using the respective buttons (DFS, BFS, Dijkstra, A*).
+1. **Set the Start and End Points**: Right-click the grid to place checkpoints.
+2. **Create Walls**: Use left-click to drag and drop walls to form a maze.
+3. **Choose an Algorithm**: Click on one of the algorithm buttons to start visualizing.
+4. **Use the Scoreboard**: Compare and analyze execution times.
 
 ### Generating Mazes
-- Use the `Generate Maze` button to create a random maze.
-- Use `Reset Paths` to clear paths while retaining the maze structure.
+- **Generate Maze**: Click the `Generate Maze` button for a random maze layout.
+- **Reset Paths**: Clears the visualized paths but retains the maze structure for further experimentation.
 
 ### Choosing Algorithms
-- Click on any of the algorithm buttons to start visualizing.
-- Use the `Scoreboard` to view and compare execution times.
+- **Switch Algorithms**: Retain the same maze layout to test different algorithms without clearing the board.
+- **Track Time**: Use the scoreboard to view and compare execution times between algorithms for a better understanding of efficiency.
 
 ## Screenshots
 
