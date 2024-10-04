@@ -77,14 +77,6 @@ To enhance understanding of the algorithm’s path, different colors are used to
 - **Switch Algorithms**: Retain the same maze layout to test different algorithms without clearing the board.
 - **Track Time**: Use the scoreboard to view and compare execution times between algorithms for a better understanding of efficiency.
 
-## Screenshots
-
-### Pathfinding with BFS
-![BFS Visualization](docs/bfs_demo.gif)
-
-### Pathfinding with A*
-![A* Visualization](docs/astar_demo.gif)
-
 ## Demo
 
 ### GIF Demonstrations:

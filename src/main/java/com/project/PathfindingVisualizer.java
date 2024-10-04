@@ -1,5 +1,10 @@
 package com.project;
 
+import com.project.algorithm.AStarAlgorithm;
+import com.project.algorithm.BFSAlgorithm;
+import com.project.algorithm.DFSAlgorithm;
+import com.project.algorithm.DijkstraAlgorithm;
+import com.project.algorithm.PathfindingAlgorithm;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -21,7 +26,7 @@ import javax.swing.KeyStroke;
 
 public class PathfindingVisualizer extends JFrame {
 
-  private final int gridSize = 20;
+  private final int gridSize = 30;
   private final Grid grid;
   private final Map<Integer, Point> checkpoints = new TreeMap<>();
   private int currentCheckpoint = 1;
@@ -42,7 +47,7 @@ public class PathfindingVisualizer extends JFrame {
     add(grid.getGridPanel(), BorderLayout.CENTER);
 
     JPanel buttonPanel = new JPanel();
-    buttonPanel.setLayout(new GridLayout(10, 1, 5, 5));  // Vertical layout for buttons
+    buttonPanel.setLayout(new GridLayout(10, 1, 5, 5));
 
     addAlgorithmButtons(buttonPanel);
     addResetAndMazeButtons(buttonPanel);
@@ -50,7 +55,6 @@ public class PathfindingVisualizer extends JFrame {
 
     add(buttonPanel, BorderLayout.EAST);
     setupKeyBindings();
-    setVisible(true);
   }
 
   private void addScoreTextArea() {
@@ -60,7 +64,7 @@ public class PathfindingVisualizer extends JFrame {
     scoreboard.setEditable(false);
     scorePanel.add(new JLabel("Algorithm Execution Times:"), BorderLayout.NORTH);
     scorePanel.add(new JScrollPane(scoreboard), BorderLayout.CENTER);
-    add(scorePanel, BorderLayout.SOUTH);  // Place the scoreboard at the bottom
+    add(scorePanel, BorderLayout.SOUTH);
   }
 
   private void addAlgorithmButtons(JPanel buttonPanel) {
@@ -140,7 +144,7 @@ public class PathfindingVisualizer extends JFrame {
     for (int row = 0; row < gridSize; row++) {
       for (int col = 0; col < gridSize; col++) {
         JPanel cell = grid.getCell(row, col);
-        cell.removeAll();  // Remove labels
+        cell.removeAll();
         cell.revalidate();
         cell.repaint();
       }
@@ -149,7 +153,7 @@ public class PathfindingVisualizer extends JFrame {
 
   private void runAndMeasureAlgorithm(PathfindingAlgorithm algorithm, String algorithmName) {
     Map<Point, Point> pointCheckpoints = convertCheckpoints(checkpoints);
-    long startTime = System.nanoTime();  // Start time tracking
+    long startTime = System.nanoTime();
     for (Map.Entry<Integer, Point> entry : checkpoints.entrySet()) {
       Point start = entry.getValue();
       if (entry.getKey() < checkpoints.size()) {

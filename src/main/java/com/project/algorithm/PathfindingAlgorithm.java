@@ -1,4 +1,4 @@
-package com.project;
+package com.project.algorithm;
 
 import java.awt.Point;
 import java.util.Map;
